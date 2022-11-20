@@ -86,4 +86,6 @@ if( ${STATIC_BUILD} )
    set_property( TARGET ${PROJECT_NAME} PROPERTY
       MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>"
    )
+else()
+   target_sources( ${PROJECT_NAME} PRIVATE include/lame.def )
 endif()
