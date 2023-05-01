@@ -12,12 +12,6 @@ else()
    set( STATIC_BUILD TRUE CACHE BOOL "" )
 endif()
 
-if( "${CMAKE_SIZEOF_VOID_P}" STREQUAL "4" )
-   set( ARCH x86 )
-else()
-   set( ARCH x86_64 )
-endif()
-
 if( ${STATIC_BUILD} )
    add_library( ${PROJECT_NAME} STATIC )
 else()
@@ -28,14 +22,14 @@ target_include_directories( ${PROJECT_NAME} PRIVATE
    mpglib
    include
    libmp3lame
-   windows/${ARCH}
+   windows
 )
 
 file( GLOB_RECURSE LAME_HEADERS
    mpglib/*.h
    include/*.h
    libmp3lame/*.h
-   windows/${ARCH}/*.h
+   windows/*.h
 )
 
 
